@@ -1,23 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package aplikasiresepmasakan;
-
 /**
  *
  * @author Ahurrez
  */
 public class MenuUtamaFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MenuUtamaFrame
-     */
     public MenuUtamaFrame() {
         initComponents();
+        
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,24 +36,25 @@ public class MenuUtamaFrame extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         CBAlatMasak = new javax.swing.JComboBox<>();
         jScrollPane3 = new javax.swing.JScrollPane();
-        TDataResep = new javax.swing.JTable();
+        TBDataResep = new javax.swing.JTable();
         jLabel10 = new javax.swing.JLabel();
         BSimpanUlang = new javax.swing.JButton();
         BModifikasi = new javax.swing.JButton();
         BMenghapus = new javax.swing.JButton();
         BPindaiData = new javax.swing.JButton();
-        BCetakData = new javax.swing.JButton();
+        BEksporData = new javax.swing.JButton();
         BCetak = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         BKeluarMenu = new javax.swing.JButton();
+        BImporData = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(30, 50, 70));
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 3, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("SansSerif", 3, 26)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(220, 240, 255));
-        jLabel2.setText("\"Masukan Resep Masakan\"");
+        jLabel2.setText("\"Menu Mengisi Resep Masakan\"");
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(220, 240, 255));
@@ -101,7 +93,7 @@ public class MenuUtamaFrame extends javax.swing.JFrame {
         TAPengerjaan.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         jScrollPane2.setViewportView(TAPengerjaan);
 
-        BSimpanData.setBackground(new java.awt.Color(50, 70, 100));
+        BSimpanData.setBackground(new java.awt.Color(0, 128, 0));
         BSimpanData.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         BSimpanData.setForeground(new java.awt.Color(255, 255, 255));
         BSimpanData.setText("Simpan Data");
@@ -123,10 +115,11 @@ public class MenuUtamaFrame extends javax.swing.JFrame {
         CBAlatMasak.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Wajan", "Panci", "Teflon", "Blender", "Kukus-san" }));
         CBAlatMasak.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        TDataResep.setBackground(new java.awt.Color(50, 70, 100));
-        TDataResep.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        TDataResep.setForeground(new java.awt.Color(255, 255, 255));
-        TDataResep.setModel(new javax.swing.table.DefaultTableModel(
+        TBDataResep.setBackground(new java.awt.Color(80, 100, 150));
+        TBDataResep.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        TBDataResep.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        TBDataResep.setForeground(new java.awt.Color(255, 255, 255));
+        TBDataResep.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -145,10 +138,10 @@ public class MenuUtamaFrame extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Judul", "Bahan-Bahan", "Tahap Pengerjaan", "Alat Utama"
+                "Judul Masakan", "Bahan-Bahan", "Tahap Pengerjaan", "Alat Utama"
             }
         ));
-        jScrollPane3.setViewportView(TDataResep);
+        jScrollPane3.setViewportView(TBDataResep);
 
         jLabel10.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(220, 240, 255));
@@ -178,11 +171,11 @@ public class MenuUtamaFrame extends javax.swing.JFrame {
         BPindaiData.setText("Pindai Data");
         BPindaiData.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        BCetakData.setBackground(new java.awt.Color(50, 70, 100));
-        BCetakData.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        BCetakData.setForeground(new java.awt.Color(255, 255, 255));
-        BCetakData.setText("Cetak Data");
-        BCetakData.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        BEksporData.setBackground(new java.awt.Color(50, 70, 100));
+        BEksporData.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        BEksporData.setForeground(new java.awt.Color(255, 255, 255));
+        BEksporData.setText("Ekspor Data");
+        BEksporData.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
         BCetak.setBackground(new java.awt.Color(50, 70, 100));
         BCetak.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -190,19 +183,22 @@ public class MenuUtamaFrame extends javax.swing.JFrame {
         BCetak.setText("Cetak");
         BCetak.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        BKeluarMenu.setBackground(new java.awt.Color(50, 70, 100));
+        BKeluarMenu.setBackground(new java.awt.Color(255, 140, 0));
         BKeluarMenu.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         BKeluarMenu.setForeground(new java.awt.Color(255, 255, 255));
         BKeluarMenu.setText("Keluar Menu");
         BKeluarMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
+        BImporData.setBackground(new java.awt.Color(50, 70, 100));
+        BImporData.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        BImporData.setForeground(new java.awt.Color(255, 255, 255));
+        BImporData.setText("Impor Data");
+        BImporData.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(265, 265, 265)
-                .addComponent(jLabel2))
             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 857, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
@@ -241,8 +237,16 @@ public class MenuUtamaFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 833, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 857, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(103, 103, 103)
+                .addGap(735, 735, 735)
+                .addComponent(BKeluarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addGap(230, 230, 230))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
                 .addComponent(BSimpanUlang, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(BModifikasi, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -251,18 +255,16 @@ public class MenuUtamaFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(BPindaiData, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(BCetakData, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 857, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(735, 735, 735)
-                .addComponent(BKeluarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(BEksporData, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(BImporData, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
+                .addContainerGap()
                 .addComponent(jLabel2)
-                .addGap(13, 13, 13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7)
                 .addComponent(jLabel5)
@@ -295,14 +297,16 @@ public class MenuUtamaFrame extends javax.swing.JFrame {
                 .addComponent(jLabel10)
                 .addGap(13, 13, 13)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BSimpanUlang)
                     .addComponent(BModifikasi)
                     .addComponent(BMenghapus)
                     .addComponent(BPindaiData)
-                    .addComponent(BCetakData))
-                .addGap(18, 18, 18)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(BEksporData)
+                        .addComponent(BImporData)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BKeluarMenu)
@@ -360,7 +364,8 @@ public class MenuUtamaFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BCetak;
-    private javax.swing.JButton BCetakData;
+    private javax.swing.JButton BEksporData;
+    private javax.swing.JButton BImporData;
     private javax.swing.JButton BKeluarMenu;
     private javax.swing.JButton BMenghapus;
     private javax.swing.JButton BModifikasi;
@@ -371,7 +376,7 @@ public class MenuUtamaFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> CBAlatMasak;
     private javax.swing.JTextArea TABahan;
     private javax.swing.JTextArea TAPengerjaan;
-    private javax.swing.JTable TDataResep;
+    private javax.swing.JTable TBDataResep;
     private javax.swing.JTextField TJudul;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

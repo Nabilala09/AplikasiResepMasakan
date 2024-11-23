@@ -5,12 +5,19 @@
  */
 package aplikasiresepmasakan;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Ahurrez
  */
 public class MenuLoginFrame extends javax.swing.JFrame {
+    
+    // Deklarasi variabel untuk login
+    private String validUsername = "manajer";  // Nama default
+    private String validPassword = "12345";  // Sandi default
 
+    
     /**
      * Creates new form MenuLoginFrame
      */
@@ -33,62 +40,107 @@ public class MenuLoginFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        TUsername = new javax.swing.JTextField();
-        TPassword = new javax.swing.JPasswordField();
-        BLogin = new javax.swing.JButton();
+        TNama = new javax.swing.JTextField();
+        TSandi = new javax.swing.JPasswordField();
+        BMasuk = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(30, 50, 70));
         jPanel1.setPreferredSize(new java.awt.Dimension(450, 400));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 59, 450, 10));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(220, 240, 255));
-        jLabel1.setText("Username :");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 121, -1, -1));
+        jLabel1.setText("Nama :");
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 3, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(220, 240, 255));
-        jLabel2.setText("Aplikasi Resep Masakan");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 14, -1, -1));
+        jLabel2.setText("\"Aplikasi Resep Masakan\"");
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(220, 240, 255));
-        jLabel3.setText("Masukkan Username dan Password Untuk Login");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 86, -1, -1));
+        jLabel3.setText("Masukkan Username dan Password Untuk Masuk :");
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(220, 240, 255));
-        jLabel4.setText("Password :");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 160, -1, -1));
+        jLabel4.setText("Sandi :");
 
-        TUsername.setBackground(new java.awt.Color(50, 70, 100));
-        TUsername.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        TUsername.setForeground(new java.awt.Color(255, 255, 255));
-        TUsername.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
-        jPanel1.add(TUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 210, -1));
+        TNama.setBackground(new java.awt.Color(50, 70, 100));
+        TNama.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        TNama.setForeground(new java.awt.Color(255, 255, 255));
+        TNama.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
 
-        TPassword.setBackground(new java.awt.Color(50, 70, 100));
-        TPassword.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        TPassword.setForeground(new java.awt.Color(255, 255, 255));
-        TPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
-        TPassword.addActionListener(new java.awt.event.ActionListener() {
+        TSandi.setBackground(new java.awt.Color(50, 70, 100));
+        TSandi.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        TSandi.setForeground(new java.awt.Color(255, 255, 255));
+        TSandi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+
+        BMasuk.setBackground(new java.awt.Color(0, 128, 0));
+        BMasuk.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        BMasuk.setForeground(new java.awt.Color(255, 255, 255));
+        BMasuk.setText("Masuk");
+        BMasuk.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        BMasuk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TPasswordActionPerformed(evt);
+                BMasukActionPerformed(evt);
             }
         });
-        jPanel1.add(TPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 159, 210, -1));
 
-        BLogin.setBackground(new java.awt.Color(50, 70, 100));
-        BLogin.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        BLogin.setForeground(new java.awt.Color(255, 255, 255));
-        BLogin.setText("Login");
-        BLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel1.add(BLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 198, 80, -1));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 237, 450, 10));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1)
+            .addComponent(jSeparator2)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel4))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TNama, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                            .addComponent(TSandi)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(jLabel3)))
+                .addContainerGap(52, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(74, 74, 74))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(BMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addGap(14, 14, 14)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(TNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(TSandi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(BMasuk)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,9 +156,26 @@ public class MenuLoginFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TPasswordActionPerformed
+    private void BMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BMasukActionPerformed
+        // Ambil input dari field
+        String username = TNama.getText();
+        String password = new String(TSandi.getPassword());
+
+        // Validasi input
+        if (username.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Nama pengguna atau sandi tidak boleh kosong!", "Pemberitahuan!", JOptionPane.WARNING_MESSAGE);
+            return;
+    }
+
+        // Autentikasi
+        if (username.equals(validUsername) && password.equals(validPassword)) {
+            JOptionPane.showMessageDialog(this, "Berhasil Masuk!", "Informasi", JOptionPane.INFORMATION_MESSAGE);
+            new MenuUtamaFrame().setVisible(true); // Navigasi ke menu utama
+            this.dispose(); // Tutup form login
+    } else {
+            JOptionPane.showMessageDialog(this, "Nama pengguna atau sandi salah!", "Kesalahan", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_BMasukActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,9 +213,9 @@ public class MenuLoginFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BLogin;
-    private javax.swing.JPasswordField TPassword;
-    private javax.swing.JTextField TUsername;
+    private javax.swing.JButton BMasuk;
+    private javax.swing.JTextField TNama;
+    private javax.swing.JPasswordField TSandi;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
