@@ -12,9 +12,6 @@ import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,14 +26,8 @@ public class MenuUtamaFrame extends javax.swing.JFrame {
         initComponents();
         
     }
-    
-        private void resetForm() {
-            TJudul.setText("");
-            TABahan.setText("");
-            TAPengerjaan.setText("");
-            CBAlatMasak.setSelectedIndex(0);
-    }
-        
+   
+        //untuk menyimpan data ke file TXT
         private void eksporKeTXT(String path) {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
                 DefaultTableModel model = (DefaultTableModel) TBDataResep.getModel();
@@ -62,10 +53,11 @@ public class MenuUtamaFrame extends javax.swing.JFrame {
     }
 }
         
+        //untuk menyimpan data ke file JSON
         private void eksporKeJSON(String path) {
-    try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
-        DefaultTableModel model = (DefaultTableModel) TBDataResep.getModel();
-        JSONArray jsonArray = new JSONArray();
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
+                DefaultTableModel model = (DefaultTableModel) TBDataResep.getModel();
+                JSONArray jsonArray = new JSONArray();
 
         // Tambah data ke JSON
         for (int i = 0; i < model.getRowCount(); i++) {
@@ -85,38 +77,9 @@ public class MenuUtamaFrame extends javax.swing.JFrame {
     }
 }
 
-    private void eksporKeXLS(String path) {
-        try (FileOutputStream fileOut = new FileOutputStream(path)) {
-            HSSFWorkbook workbook = new HSSFWorkbook(); // Workbook Excel
-            HSSFSheet sheet = workbook.createSheet("Resep Masakan");
-
-            DefaultTableModel model = (DefaultTableModel) TBDataResep.getModel();
-
-            // Tulis header
-            HSSFRow header = sheet.createRow(0);
-            header.createCell(0).setCellValue("Judul Masakan");
-            header.createCell(1).setCellValue("Bahan-Bahan");
-            header.createCell(2).setCellValue("Tahap Pengerjaan");
-            header.createCell(3).setCellValue("Alat");
-
-        // Tulis data
-        for (int i = 0; i < model.getRowCount(); i++) {
-            HSSFRow row = sheet.createRow(i + 1);
-            row.createCell(0).setCellValue(model.getValueAt(i, 0).toString());
-            row.createCell(1).setCellValue(model.getValueAt(i, 1).toString());
-            row.createCell(2).setCellValue(model.getValueAt(i, 2).toString());
-            row.createCell(3).setCellValue(model.getValueAt(i, 3).toString());
-        }
-
-            workbook.write(fileOut);
-                JOptionPane.showMessageDialog(this, "Data berhasil diekspor ke XLS!", "Pemberitahuan", JOptionPane.INFORMATION_MESSAGE);
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat menyimpan file XLS.", "Peringatan", JOptionPane.ERROR_MESSAGE);
-    }
-}
-    
-    private void imporDariTXT(String path) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
+        //untuk Memasukkan data dari file TXT
+        private void imporDariTXT(String path) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
             DefaultTableModel model = (DefaultTableModel) TBDataResep.getModel();
             String line;
             reader.readLine(); // Lewati header
@@ -129,14 +92,15 @@ public class MenuUtamaFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat membaca file TXT.", "Peringatan", JOptionPane.ERROR_MESSAGE);
     }
 }
-    
-    private void imporDariJSON(String path) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
-            DefaultTableModel model = (DefaultTableModel) TBDataResep.getModel();
-            StringBuilder jsonString = new StringBuilder();
-            String line;
-        while ((line = reader.readLine()) != null) {
-            jsonString.append(line);
+        
+        //untuk Memasukkan data dari file TXT
+        private void imporDariJSON(String path) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
+                DefaultTableModel model = (DefaultTableModel) TBDataResep.getModel();
+                StringBuilder jsonString = new StringBuilder();
+                String line;
+            while ((line = reader.readLine()) != null) {
+                jsonString.append(line);
         }
 
             JSONArray jsonArray = new JSONArray(jsonString.toString());
@@ -271,10 +235,9 @@ public class MenuUtamaFrame extends javax.swing.JFrame {
         CBAlatMasak.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Wajan", "Panci", "Teflon", "Blender", "Kukus-san" }));
         CBAlatMasak.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        TBDataResep.setBackground(new java.awt.Color(204, 204, 255));
+        TBDataResep.setBackground(new java.awt.Color(153, 153, 255));
         TBDataResep.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         TBDataResep.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        TBDataResep.setForeground(new java.awt.Color(255, 255, 255));
         TBDataResep.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -625,7 +588,7 @@ public class MenuUtamaFrame extends javax.swing.JFrame {
 
     private void BEksporActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BEksporActionPerformed
         // Pilih format ekspor
-        String[] options = {"TXT", "JSON", "XLS"};
+        String[] options = {"TXT", "JSON"};
         String pilihan = (String) JOptionPane.showInputDialog(
             this, 
                 "Pilih format ekspor:", 
@@ -654,10 +617,6 @@ public class MenuUtamaFrame extends javax.swing.JFrame {
             case "JSON":
                 path += ".json";
                 eksporKeJSON(path);
-                break;
-            case "XLS":
-                path += ".xls";
-                eksporKeXLS(path);
                 break;
         }
     }
