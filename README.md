@@ -23,7 +23,7 @@ Aplikasi ini dibuat sebagai bagian dari Ujian Tengah Semester. Aplikasi dirancan
 
 ## Cara Menjalankan
 
-1. Clone repositori dari GitHub: `[https://github.com/[username]/[Nama-NPM-UTS]](https://github.com/Nabilala09/AplikasiResepMasakan)`.
+1. Clone repositori dari GitHub: `https://github.com/Nabilala09/AplikasiResepMasakan`.
 2. Buka proyek di NetBeans (atau IDE lain yang kompatibel).
 3. Jalankan aplikasi.
 4. Gunakan fitur CRUD untuk mengelola entri data.
