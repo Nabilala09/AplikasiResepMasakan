@@ -659,6 +659,29 @@ public class MenuUtamaFrame extends javax.swing.JFrame {
             // Jika pilihannya 'No', tidak melakukan apa-apa (dialog tertutup)
     }//GEN-LAST:event_BKeluarActionPerformed
 
+        private void TBDataResepMouseClicked(java.awt.event.MouseEvent evt) {                                         
+        // Dapatkan baris yang diklik
+        int selectedRow = TBDataResep.getSelectedRow();
+    
+        // Periksa apakah ada baris yang dipilih
+        if (selectedRow != -1) {
+            // Ambil data dari tabel berdasarkan baris yang dipilih
+            String judul = (String) TBDataResep.getValueAt(selectedRow, 0); // Kolom Judul
+            String bahan = (String) TBDataResep.getValueAt(selectedRow, 1); // Kolom Bahan-Bahan
+            String tahap = (String) TBDataResep.getValueAt(selectedRow, 2); // Kolom Tahap Pengerjaan
+            String alat = (String) TBDataResep.getValueAt(selectedRow, 3);  // Kolom Alat Masak
+
+            // Masukkan data ke komponen input
+            TJudul.setText(judul);
+            TABahan.setText(bahan);
+            TAPengerjaan.setText(tahap);
+            CBAlatMasak.setSelectedItem(alat); // Pilihan di ComboBox
+        } else {
+            // Jika tidak ada baris yang dipilih, tampilkan peringatan (opsional)
+            JOptionPane.showMessageDialog(this, "Pilih baris yang valid!", "Peringatan", JOptionPane.WARNING_MESSAGE);
+    }
+    }//GEN-LAST:event_TBDataResepMouseClicked
+
     /**
      * @param args the command line arguments
      */
